@@ -13,7 +13,7 @@ from .station import MonitoringStation
 from .datafetcher import fetch, fetch_latest_water_level_data,\
      fetch_measure_levels, fetch_station_data, dump, load
 
-def stations_by_distance(stations, p):
+def station_by_distance(stations, p):
     stations = build_station_list()
     d_list = []
     lon1, lat1 = p[0],p[1]
@@ -28,7 +28,7 @@ def stations_by_distance(stations, p):
     return d_list
     
 
-def stations_within_radius(stations, centre, r):
+def station_within_radius(stations, centre, r):
     stations = build_station_list()
     r_list = []
     lon1, lat1 = centre[0],centre[1]
@@ -49,14 +49,15 @@ def rivers_with_station(stations):
     rs_list = []
     for station in stations:
         rivers = station.river
-        rs_list.append(rivers)
+        # rs_list.append(rivers)
+        # rs_list.sort()
+        # river_list = set(rs_list)
+        if rivers in rs_list:
+            continue
+        else:
+            rs_list.append(rivers)
     rs_list.sort()
-    river_list = set(rs_list)
-        # if rivers in rs_list:
-        #     continue
-        # else:
-        #     rs_list.append(rivers)
-    return river_list
+    return rs_list
 
 
 def stations_by_river(stations):
@@ -72,37 +73,3 @@ def stations_by_river(stations):
     return (sr_dict)
 
 
-
-#Task1E
-def rivers_by_station_number(stations, N):
-
-    #dictionary in which key = river, value = station_no
-    rivers_station_no = {}
-
-    #for loop to cycle through all stations, adding a key value pair of river and station no
-    for station in stations:
-        if station.river in rivers_station_no:
-            rivers_station_no[station.river] += 1
-        else:
-            rivers_station_no[station.river] = 1
-
-    #sort the dictionary to give river with descending order of station no
-    rivers_station_no = sorted(rivers_station_no.items(), key=lambda x:x[1], reverse=True)
-
-    #appending top 9 rivers with most number of station
-    river_list = []
-    count = 0
-    for x in range(N):
-        if count <= N:
-            river_list.append(list(rivers_station_no)[x])
-            count += 1
-
-    #cycle through all rivers, adding rivers with station number same as rank 9 river
-    for pair in rivers_station_no:
-        if pair[-1] == river_list[-1][-1]:
-            river_list.append(pair)
-
-    #remove river at index 8 (rank 9) to remove double count
-    river_list.pop(N-1)
-
-    return river_list
