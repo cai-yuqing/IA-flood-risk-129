@@ -12,10 +12,10 @@ def run():
     stations = build_station_list()
 
     #list of rivers with at least one station
-    r_list = list(rivers_with_station(stations))
+    r_list = rivers_with_station(stations)
 
     #print number of stations and first 10 stations
-    print(str(len(r_list)) + " stations. First 10 - " + str(sorted(r_list)[:10]))
+    print(len(r_list), r_list[:10])
 
     #part b
     #dictionary of rivers with their monitoring stations
@@ -29,5 +29,3 @@ def run():
 if __name__ == "__main__":
     print("*** Task 1D: CUED Part IA Flood Warning System ***")
     run()
-
-
