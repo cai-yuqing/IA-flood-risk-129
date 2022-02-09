@@ -1,7 +1,7 @@
 
 from floodsystem.stationdata import build_station_list
 from floodsystem.haversine import haversine
-from floodsystem.geo import station_by_distance
+from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation
 from floodsystem.utils import sorted_by_key  # noqa
 
@@ -16,7 +16,7 @@ def run():
 
     #list of stations from near to far
     staList = []
-    staList = station_by_distance(stations, p)
+    staList = stations_by_distance(stations, p)
     print('the 10 closest entries:', staList[:10])
     print('the 10 furthest entries:', staList[-10:])
 
