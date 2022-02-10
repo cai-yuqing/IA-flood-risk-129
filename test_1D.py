@@ -20,9 +20,7 @@ def test_rivers_with_station():
     test = rivers_with_station([station3, station2, station1, station4])
 
     #test for distance from a certain coordinate: 
-    assert test == "3"+ ["River A", "River B", "River C"]
-
-
+    assert test == ["River A", "River B", "River C"]
 
 def test_stations_by_river():
     """Test for Task1B functions"""

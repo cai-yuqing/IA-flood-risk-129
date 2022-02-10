@@ -14,7 +14,7 @@ from .datafetcher import fetch, fetch_latest_water_level_data,\
      fetch_measure_levels, fetch_station_data, dump, load
 
 def stations_by_distance(stations, p):
-    stations = build_station_list()
+    # stations = build_station_list()
     d_list = []
     lon1, lat1 = p[0],p[1]
     for station in stations:
@@ -29,7 +29,6 @@ def stations_by_distance(stations, p):
     
 
 def stations_within_radius(stations, centre, r):
-    stations = build_station_list()
     r_list = []
     lon1, lat1 = centre[0],centre[1]
     for station in stations:
@@ -45,7 +44,6 @@ def stations_within_radius(stations, centre, r):
 
 
 def rivers_with_station(stations):
-    stations = build_station_list()
     rs_list = []
     for station in stations:
         rivers = station.river
