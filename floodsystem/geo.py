@@ -14,7 +14,6 @@ from .datafetcher import fetch, fetch_latest_water_level_data,\
      fetch_measure_levels, fetch_station_data, dump, load
 
 def stations_by_distance(stations, p):
-    # stations = build_station_list()
     d_list = []
     lon1, lat1 = p[0],p[1]
     for station in stations:
