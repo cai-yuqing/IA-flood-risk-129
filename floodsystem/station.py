@@ -59,6 +59,24 @@ class MonitoringStation:
         else:
             return True
 
+    #Task2B
+    def relative_water_level(self):
+        """method that returns the latest water level as a fraction of the typical range"""
+        
+        #if the necessary data is not available, function should return None
+        if self.latest_level == None:
+            return None
+        
+        #if the necessary data is not consistent, function should return None
+        if MonitoringStation.typical_range_consistent(self) == False:
+            return False
+
+        #if the necessary data is available and consistent, function should return ratio
+        elif MonitoringStation.typical_range_consistent(self) == True:
+            
+            #return (latest - low)/(high-low)
+            return (self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
+
 #Task1F
 def inconsistent_typical_range_stations(stations):
     """Requirements for Task 1F"""
