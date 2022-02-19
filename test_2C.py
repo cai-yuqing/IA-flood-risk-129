@@ -26,4 +26,4 @@ def test_stations_highest_rel_level():
     #test the function on these 4 stations, for toll = 0.8, should return station 4 and station 3 in this order in a tuple with their relative water level
     test = stations_highest_rel_level([station1, station3, station2, station4], 3)
 
-    assert test == [(station4, 0.99),(station3, 0.9),(station2), 0.6]
+    assert test == [(station4, 0.99),(station3, 0.9),(station2, 0.6)]
