@@ -10,6 +10,7 @@ def run():
 
     # create a list using stations_highest_rel_level function that has top N stations with highest rel water level
     list1 = stations_highest_rel_level(stations, 10)
+    #print(list1)
 
     # iterate across the list and print out each station with its ratio
     for station in list1:
